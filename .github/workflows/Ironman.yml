@@ -5,23 +5,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # copy git 到虚拟机
-    - name: 'Checkout codes'  
-      uses: actions/checkout@v1
-    - name: get git log  
-      id: git_log
-      uses: Edisonboy/latest-git-log-action@main
-      with:
-        tag: origin/master
+    # - name: 'Checkout codes'  
+    #  uses: actions/checkout@v1
+    # - name: get git log  
+    #  id: git_log
+    #  uses: Edisonboy/latest-git-log-action@main
+    #  with:
+    #    tag: origin/master
     # 发送邮件    
     - name: Send email
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.163.com
         server_port: 465
+        secure: true
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: Github Actions job result
         to: ${{secrets.MAIL_TOUSERNAME}}
-        from: ${{secrets.MAIL_USERNAME}}
-        body: ${{github.repository}} 
-        push log : ${{steps.git_log.outputs.log}}
+        from: Luke Skywalker
+        body: Build job of ${{github.repository}} completed successfully!
+        html_body: file://README.html
+        convert_markdown: true
