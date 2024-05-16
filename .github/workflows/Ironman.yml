@@ -25,5 +25,5 @@ jobs:
         to: ${{secrets.MAIL_TOUSERNAME}}
         from: Luke Skywalker
         body: Build job of ${{github.repository}} completed successfully!
-        html_body: hello white! this email from github actions please reply me soon
+        html_body: hello white! this email from github actions please reply me soon! I am Ironman
         convert_markdown: true
