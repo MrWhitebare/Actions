@@ -9,7 +9,7 @@ jobs:
       uses: actions/checkout@v1
     - name: get git log  
       id: git_log
-      uses: MrWhitebare/Actions@main
+      uses: Edisonboy/latest-git-log-action@main
       with:
         tag: origin/master
     # 发送邮件    
